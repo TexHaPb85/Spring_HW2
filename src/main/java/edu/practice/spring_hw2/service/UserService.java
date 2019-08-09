@@ -8,20 +8,20 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.HashMap;
-import java.util.UUID;
 
 @Service
 public class UserService {
 
-    public User returnNewUserByEmail(String email){
+    public User returnNewUserByEmail(String email) {
         User user = new User("Alex", "Fax", LocalDate.now(), null, email, new HashMap<>());
-        user.getDoneHomework().put("HW1",true);
-        user.getDoneHomework().put("HW2",false);
+        user.getDoneHomework().put("HW1", true);
+        user.getDoneHomework().put("HW2", false);
         return user;
     }
 
-    public User handleUser(User user){
-        user.setAccessId(UUID.fromString("UUIDName").toString());
+    public User handleUser(User user) {
+        //user.setAccessId(UUID.fromString("UUIDName").toString());
+        user.setAccessId("random access id");
         serializeUser(user);
         return user;
     }
