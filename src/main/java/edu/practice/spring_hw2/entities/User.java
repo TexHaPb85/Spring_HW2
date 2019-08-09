@@ -22,7 +22,6 @@ public class User {
     private String accessId;
 
     private String email;
-
     private Map<String, Boolean> doneHomework;
 
     public User(String name, String surName, LocalDate lastLoginDate, String accessId, String email, Map<String, Boolean> doneHomework) {
