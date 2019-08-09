@@ -24,6 +24,4 @@ public class UserController {
     public User handleUser(@RequestBody User user) {
         return userService.handleUser(user);
     }
-
-
 }
