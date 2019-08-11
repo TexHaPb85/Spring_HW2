@@ -1,6 +1,5 @@
 package edu.practice.spring_hw2.entities;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -10,7 +9,7 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import java.time.LocalDate;
 import java.util.Map;
 
-public class User {
+public class UserDTO {
     private String name;
     private String surName;
 
@@ -24,7 +23,7 @@ public class User {
     private String email;
     private Map<String, Boolean> doneHomework;
 
-    public User(String name, String surName, LocalDate lastLoginDate, String accessId, String email, Map<String, Boolean> doneHomework) {
+    public UserDTO(String name, String surName, LocalDate lastLoginDate, String accessId, String email, Map<String, Boolean> doneHomework) {
         this.name = name;
         this.surName = surName;
         this.lastLoginDate = lastLoginDate;
@@ -33,7 +32,7 @@ public class User {
         this.doneHomework = doneHomework;
     }
 
-    public User() {
+    public UserDTO() {
     }
 
     public String getName() {
@@ -86,7 +85,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserDTO{" +
                 "name='" + name + '\'' +
                 ", surName='" + surName + '\'' +
                 ", lastLoginDate=" + lastLoginDate +

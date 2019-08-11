@@ -1,9 +1,10 @@
 package edu.practice.spring_hw2.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import edu.practice.spring_hw2.entities.User;
+import edu.practice.spring_hw2.entities.UserDTO;
 import org.springframework.stereotype.Service;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -12,26 +13,22 @@ import java.util.HashMap;
 @Service
 public class UserService {
 
-    public User returnNewUserByEmail(String email) {
-        User user = new User("Alex", "Fax", LocalDate.now(), null, email, new HashMap<>());
-        user.getDoneHomework().put("HW1", true);
-        user.getDoneHomework().put("HW2", false);
-        return user;
+    public UserDTO returnNewUserByEmail(String email) {
+        UserDTO userDTO = new UserDTO("Alex", "Fax", LocalDate.now(), null, email, new HashMap<>());
+        userDTO.getDoneHomework().put("HW1", true);
+        userDTO.getDoneHomework().put("HW2", false);
+        return userDTO;
     }
 
-    public User handleUser(User user) {
-        //user.setAccessId(UUID.fromString("UUIDName").toString());
-        user.setAccessId("random access id");
-        serializeUser(user);
-        return user;
+    public UserDTO handleUser(UserDTO userDTO) throws IOException {
+        //userDTO.setAccessId(UUID.fromString("UUIDName").toString());
+        userDTO.setAccessId("random access id");
+        serializeUser(userDTO);
+        return userDTO;
     }
 
-    public void serializeUser(User user) {
+    public void serializeUser(UserDTO userDTO) throws FileNotFoundException, IOException {
         ObjectMapper objectMapper = new ObjectMapper();
-        try {
-            objectMapper.writeValue(new FileOutputStream("target/task1.json"), user);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        objectMapper.writeValue(new FileOutputStream("target/task1.json"), userDTO);
     }
 }

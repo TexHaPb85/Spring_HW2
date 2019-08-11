@@ -1,7 +1,7 @@
 package edu.practice.spring_hw2;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import edu.practice.spring_hw2.entities.User;
+import edu.practice.spring_hw2.entities.UserDTO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,14 +22,14 @@ public class JacksonSerializationExample {
 
     public final String FILE_PATH = "target/output.json";
     public ObjectMapper objectMapper = new ObjectMapper();
-    private User transferUser = new User("Jamie", "Lanoster", LocalDate.now().minusDays(1), "ac1234", "userJamie@gmail.com", new HashMap<String, Boolean>());
+    private UserDTO transferUser = new UserDTO("Jamie", "Lanoster", LocalDate.now().minusDays(1), "ac1234", "userJamie@gmail.com", new HashMap<String, Boolean>());
 
     @Test
     public void serializationExample() {
-        User user = transferUser;
+        UserDTO userDTO = transferUser;
 
         try {
-            objectMapper.writeValue(new FileOutputStream(FILE_PATH), user);
+            objectMapper.writeValue(new FileOutputStream(FILE_PATH), userDTO);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -37,20 +37,20 @@ public class JacksonSerializationExample {
 
     @Test
     public void deserializationExample() {
-        User user = null;
+        UserDTO userDTO = null;
         try {
-            user = objectMapper.readValue(new FileInputStream(FILE_PATH), User.class);
+            userDTO = objectMapper.readValue(new FileInputStream(FILE_PATH), UserDTO.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        assertEquals(transferUser.getName(), user.getName());
-        assertEquals(transferUser.getSurName(), user.getSurName());
-        assertEquals(transferUser.getEmail(), user.getEmail());
-        assertEquals(transferUser.getLastLoginDate(), user.getLastLoginDate());
-        assertEquals(transferUser.getDoneHomework(), user.getDoneHomework());
+        assertEquals(transferUser.getName(), userDTO.getName());
+        assertEquals(transferUser.getSurName(), userDTO.getSurName());
+        assertEquals(transferUser.getEmail(), userDTO.getEmail());
+        assertEquals(transferUser.getLastLoginDate(), userDTO.getLastLoginDate());
+        assertEquals(transferUser.getDoneHomework(), userDTO.getDoneHomework());
 
-        assertEquals(null,user.getAccessId());
+        assertEquals(null, userDTO.getAccessId());
 
 
     }
