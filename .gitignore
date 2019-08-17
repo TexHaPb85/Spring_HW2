@@ -7,3 +7,4 @@ mvnw
 .mvn\wrapper\MavenWrapperDownloader.java
 mvnw.cmd
 HELP.md
+.mvn
