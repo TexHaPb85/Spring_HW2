@@ -15,7 +15,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("{email}")
+    @PostMapping("{email}")
     public UserDTO getNewUser(@PathVariable String email) {
         return userService.createNewUserByEmail(email);
     }
