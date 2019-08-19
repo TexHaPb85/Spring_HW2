@@ -1,13 +1,13 @@
-package edu.practice.spring_hw2.entities;
+package edu.practice.hw12.entities;
 
 import org.springframework.http.HttpStatus;
 
-public class HandlingResponse {
+public class HttpResponse {
     private HttpStatus httpStatus;
     private String massege;
 
 
-    public HandlingResponse(HttpStatus httpStatus, String massege) {
+    public HttpResponse(HttpStatus httpStatus, String massege) {
         this.httpStatus = httpStatus;
         this.massege = massege;
     }

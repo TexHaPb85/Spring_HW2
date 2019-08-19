@@ -1,4 +1,4 @@
-package edu.practice.spring_hw2.entities;
+package edu.practice.hw12.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;

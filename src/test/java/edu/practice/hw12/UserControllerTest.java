@@ -1,6 +1,6 @@
-package edu.practice.spring_hw2;
+package edu.practice.hw12;
 
-import edu.practice.spring_hw2.entities.UserDTO;
+import edu.practice.hw12.entities.UserDTO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
